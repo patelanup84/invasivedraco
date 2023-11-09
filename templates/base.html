@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ title | default("Your Website Title") }}</title>
+    <link href="{{ url_for('static', filename='css/bootstrap.min.css') }}" rel="stylesheet">
+</head>
+<body>
+
+<header>
+    <!-- Navigation bar with Bootstrap -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="/">
+            <img src="{{ url_for('static', filename='images/logo.png') }}" alt="Logo" height="30">
+            Site Name
+        </a>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item"><a class="nav-link" href="/about">About Us</a></li>
+                <!-- Dynamically create category links -->
+                <li class="nav-item"><a class="nav-link" href="/category/category1">Category 1</a></li>
+                <li class="nav-item"><a class="nav-link" href="/category/category2">Category 2</a></li>
+            </ul>
+        </div>
+    </nav>
+</header>
+
+<main class="container">
+    {% block content %}{% endblock %}
+</main>
+
+<footer class="bg-light text-center text-lg-start">
+    <!-- Add footer content here -->
+    <div class="text-center p-3">
+        © 2023 Site Name | <a href="#">Facebook</a> | <a href="#">Twitter</a> | <a href="#">Instagram</a>
+        <br>
+        Contact us: info@example.com
+    </div>
+</footer>
+
+<script src="{{ url_for('static', filename='js/bootstrap.bundle.min.js') }}"></script>
+</body>
+</html>
